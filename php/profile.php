@@ -555,7 +555,7 @@ try {
                                         LEFT JOIN playlist_items pi ON p.playlist_id = pi.playlist_id
                                         WHERE p.user_id = ? 
                                         GROUP BY p.playlist_id
-                                        ORDER BY p.creation_date DESC 
+                                        ORDER BY item_count DESC
                                         LIMIT 6
                                     ");
                                     $stmt->execute([$_SESSION['user_id']]);
@@ -631,7 +631,7 @@ try {
                                         LEFT JOIN playlist_items pi ON p.playlist_id = pi.playlist_id
                                         WHERE p.is_public = 1 AND f.follower_user_id = ?
                                         GROUP BY p.playlist_id
-                                        ORDER BY p.creation_date DESC 
+                                        ORDER BY item_count DESC
                                         LIMIT 12
                                     ");
                                     $stmt->execute([$_SESSION['user_id']]);
@@ -1305,7 +1305,7 @@ try {
                                         LEFT JOIN playlist_items pi ON p.playlist_id = pi.playlist_id
                                         WHERE p.user_id = ? 
                                         GROUP BY p.playlist_id
-                                        ORDER BY p.creation_date DESC 
+                                        ORDER BY item_count DESC
                                         LIMIT 6
                                     ");
                                     $stmt->execute([$_SESSION['user_id']]);
@@ -1381,7 +1381,7 @@ try {
                                         LEFT JOIN playlist_items pi ON p.playlist_id = pi.playlist_id
                                         WHERE p.is_public = 1 AND f.follower_user_id = ?
                                         GROUP BY p.playlist_id
-                                        ORDER BY p.creation_date DESC 
+                                        ORDER BY item_count DESC
                                         LIMIT 12
                                     ");
                                     $stmt->execute([$_SESSION['user_id']]);
