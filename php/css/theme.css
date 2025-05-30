@@ -1,0 +1,130 @@
+/* css/theme.css */
+:root {
+    --light-bg: #ffffff;
+    --light-text: #333333;
+    --light-header-bg: #f8f9fa;
+    --light-header-text: #212529;
+    --light-footer-bg: #f1f1f1;
+    --light-footer-text: #555555;
+    --light-nav-link: #007bff;
+    --light-nav-link-hover: #0056b3;
+    --light-button-bg: #007bff;
+    --light-button-text: #ffffff;
+    --light-button-hover-bg: #0056b3;
+    --light-accordion-header-bg: #e9ecef;
+    --light-accordion-header-text: #495057;
+    --light-accordion-content-bg: #ffffff;
+    --light-border-color: #dee2e6;
+
+    --dark-bg: #22272e;
+    --dark-text: #c9d1d9;
+    --dark-header-bg: #1c2128;
+    --dark-header-text: #f0f6fc;
+    --dark-footer-bg: #161b22;
+    --dark-footer-text: #7d8590;
+    --dark-nav-link: #58a6ff;
+    --dark-nav-link-hover: #1f6feb;
+    --dark-button-bg: #238636;
+    --dark-button-text: #ffffff;
+    --dark-button-hover-bg: #2ea043;
+    --dark-accordion-header-bg: #30363d;
+    --dark-accordion-header-text: #c9d1d9;
+    --dark-accordion-content-bg: #22272e; /* Can be same as body bg or slightly different */
+    --dark-border-color: #444c56;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Default to light theme */
+body {
+    --bg-color: var(--light-bg);
+    --text-color: var(--light-text);
+    --header-bg: var(--light-header-bg);
+    --header-text: var(--light-header-text);
+    --footer-bg: var(--light-footer-bg);
+    --footer-text: var(--light-footer-text);
+    --nav-link: var(--light-nav-link);
+    --nav-link-hover: var(--light-nav-link-hover);
+    --button-bg: var(--light-button-bg);
+    --button-text: var(--light-button-text);
+    --button-hover-bg: var(--light-button-hover-bg);
+    --current-accordion-header-bg: var(--light-accordion-header-bg);
+    --current-accordion-header-text: var(--light-accordion-header-text);
+    --current-accordion-content-bg: var(--light-accordion-content-bg);
+    --current-border-color: var(--light-border-color);
+}
+
+body.dark-theme {
+    --bg-color: var(--dark-bg);
+    --text-color: var(--dark-text);
+    --header-bg: var(--dark-header-bg);
+    --header-text: var(--dark-header-text);
+    --footer-bg: var(--dark-footer-bg);
+    --footer-text: var(--dark-footer-text);
+    --nav-link: var(--dark-nav-link);
+    --nav-link-hover: var(--dark-nav-link-hover);
+    --button-bg: var(--dark-button-bg);
+    --button-text: var(--dark-button-text);
+    --button-hover-bg: var(--dark-button-hover-bg);
+    --current-accordion-header-bg: var(--dark-accordion-header-bg);
+    --current-accordion-header-text: var(--dark-accordion-header-text);
+    --current-accordion-content-bg: var(--dark-accordion-content-bg);
+    --current-border-color: var(--dark-border-color);
+}
+
+/* Apply theme variables to elements */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--current-border-color);
+}
+header h1 { color: var(--header-text); }
+
+nav ul li a {
+    color: var(--nav-link);
+}
+nav ul li a:hover {
+    color: var(--nav-link-hover);
+}
+
+button, #theme-toggle-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid transparent; /* or var(--current-border-color) */
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover, #theme-toggle-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    border-top: 1px solid var(--current-border-color);
+}
+
+.accordion-item {
+    border: 1px solid var(--current-border-color);
+}
+.accordion-header {
+    background-color: var(--current-accordion-header-bg);
+    color: var(--current-accordion-header-text);
+}
+.accordion-header:hover {
+    /* You might want slightly different hover shades per theme or a generic one */
+    filter: brightness(95%);
+}
+.accordion-header.active {
+    filter: brightness(90%);
+}
+.accordion-content {
+    background-color: var(--current-accordion-content-bg);
+    border-top: 1px solid var(--current-border-color);
+}
